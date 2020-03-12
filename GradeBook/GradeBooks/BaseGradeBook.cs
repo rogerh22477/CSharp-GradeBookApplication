@@ -13,7 +13,7 @@ namespace GradeBook.GradeBooks
     {
         public string Name { get; set; }
 
-        public Type Type { get; set; }
+        public GradeBookType Type { get; set; }
 
         public List<Student> Students { get; set; }
 
