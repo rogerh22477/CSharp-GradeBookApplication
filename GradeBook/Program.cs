@@ -1,4 +1,7 @@
-﻿using System;
+﻿//**Gradebook Calculation Program For Students**//
+//**Developer:  Roger Howard                  **//
+//**Date:  3/12/2020                          **//
+using System;
 using GradeBook.UserInterfaces;
 
 namespace GradeBook
