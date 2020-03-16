@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using GradeBook.Enums;
 
 namespace GradeBook.GradeBooks
@@ -11,29 +14,42 @@ namespace GradeBook.GradeBooks
         }
 
         public override char GetLetterGrade(double averageGrade)
-        {
-            //public char letterGrade = " ";
+        {            
 
             if (Students.Count < 5)
             {
-                throw InvalidOperationException("There are not enough students.");
+                throw InvalidOperationException("There are not enough students to calculate the grade.");
             }
 
-            //switch (averageGrade)
-            //{
-            //    case 1(averageGrade > 90):
-            //        return GetLetterGrade = "A";
-            //    default:
-            //        break;
-            //}
-            return base.GetLetterGrade(averageGrade);
-            //return averageGrade = "F";
+            char letterGrade;
 
+            if (averageGrade >= 90)
+            {
+                letterGrade = 'A';
+            }
+            else if (averageGrade >= 80)
+            {
+                letterGrade = 'B';
+            }
+            else if (averageGrade >= 70)
+            {
+                letterGrade = 'C';
+            }
+            else if (averageGrade >= 60)
+            {
+                letterGrade = 'D';
+            }
+            else
+            {
+                letterGrade = 'F';
+            }
+            return letterGrade;
         }
-
+               
         private Exception InvalidOperationException(string v)
         {
             throw new NotImplementedException();
         }
+
     }
 }
