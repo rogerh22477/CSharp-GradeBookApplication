@@ -18,24 +18,26 @@ namespace GradeBook.GradeBooks
 
             if (Students.Count < 5)
             {
-                throw InvalidOperationException("There are not enough students to calculate the grade.");
+                throw InvalidOperationException("There needs to be at least 5 students to calculate the grade.");
             }
 
             char letterGrade;
+            var studentCount = (int)Math.Round(Students.Count * 0.2);
+            var gradesList = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
 
-            if (averageGrade >= 90)
+            if (gradesList[studentCount - 1] <= averageGrade)
             {
                 letterGrade = 'A';
             }
-            else if (averageGrade >= 80)
+            else if (gradesList[(studentCount * 2) - 1] <= averageGrade)
             {
                 letterGrade = 'B';
             }
-            else if (averageGrade >= 70)
+            else if (gradesList[(studentCount * 3) - 1] <= averageGrade)
             {
                 letterGrade = 'C';
             }
-            else if (averageGrade >= 60)
+            else if (gradesList[(studentCount * 4) - 1] <= averageGrade)
             {
                 letterGrade = 'D';
             }
