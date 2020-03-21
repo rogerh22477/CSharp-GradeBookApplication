@@ -47,7 +47,17 @@ namespace GradeBook.GradeBooks
             }
             return letterGrade;
         }
-               
+
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5)
+            {
+                throw InvalidOperationException("There needs to be at least 5 students to calculate the grade.");
+            }
+            else
+                base.CalculateStatistics();
+        }
+
         private Exception InvalidOperationException(string v)
         {
             throw new NotImplementedException();
